@@ -1,0 +1,22 @@
+[
+    {
+        "id": 0,
+        "image": "/images/image-waffle-desktop.jpg",
+        "name": "Brand Identity"
+    },
+    {
+        "id": 1,
+        "image": "/images/image-waffle-desktop.jpg",
+        "name": "Social Media"
+    },
+    {
+        "id": 2,
+        "image": "/images/image-waffle-desktop.jpg",
+        "name": "Dester Design"
+    },
+    {
+        "id": 3,
+        "image": "/images/image-waffle-desktop.jpg",
+        "name": "Corporate Branding"
+    }
+]

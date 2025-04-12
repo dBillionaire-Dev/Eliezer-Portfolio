@@ -4,6 +4,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import Services from './pages/Services';
 // import Contact from './pages/Contact';
 import Header from './components/Header';
+import Hero from './components/Hero';
+import Content from './components/Content';
+import Services from './components/Services';
+import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 function App() {
@@ -16,6 +20,10 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} /> */}
       </Routes>
+      <Hero />
+      <Content />
+      <Services />
+      <Contact />
       <Footer />
     </Router>
   );

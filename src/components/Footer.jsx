@@ -2,9 +2,12 @@ import React from 'react'
 
 const Footer = () => {
     return (
-        <div>
-            <small>I am a footer</small>
-        </div>
+        <footer>
+            <small>
+                © Eliezer Ekunke {new Date().getFullYear()}. Developed by <a href="https://github.com/dBillionaireDev" target="_blank">Nexy</a>
+            </small>
+        </footer>
+
     )
 }
 
