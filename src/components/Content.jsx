@@ -3,7 +3,7 @@ import data from '../data.json';
 
 const Content = () => {
     return (
-        <div>
+        <div className="flex-row-reverse">
             <h2>Portfolio</h2>
             {data.map((item) => (
                 <section key={item.id}>
@@ -11,6 +11,7 @@ const Content = () => {
                         <img
                             src={item.image}
                             alt={item.name}
+                            className='w-30 h-50 rounded'
                         />
                     </li>
                     <li>{item.name}</li>

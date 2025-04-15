@@ -1,22 +1,22 @@
 [
     {
         "id": 0,
-        "image": "/images/image-waffle-desktop.jpg",
+        "image": "/images/IMG-20250412-WA0117.jpg",
         "name": "Brand Identity"
     },
     {
         "id": 1,
-        "image": "/images/image-waffle-desktop.jpg",
+        "image": "/images/IMG-20250412-WA0118.jpg",
         "name": "Social Media"
     },
     {
         "id": 2,
-        "image": "/images/image-waffle-desktop.jpg",
+        "image": "/images/IMG-20250412-WA0119.jpg",
         "name": "Dester Design"
     },
     {
         "id": 3,
-        "image": "/images/image-waffle-desktop.jpg",
+        "image": "/images/IMG-20250412-WA0120.jpg",
         "name": "Corporate Branding"
     }
 ]
