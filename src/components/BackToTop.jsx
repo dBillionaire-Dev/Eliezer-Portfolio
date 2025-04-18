@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-// import { LuArrowUpFromLine } from "react-icons/lu";
 import { FaArrowUp } from 'react-icons/fa';
 const BackToTop = () => {
     const [visible, setVisible] = useState(false);

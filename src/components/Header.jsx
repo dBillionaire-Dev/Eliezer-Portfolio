@@ -41,11 +41,11 @@ const Header = () => {
             <nav className="hidden lg:flex space-x-10">
                 <a className='hover:text-gray-500' href="/">Home</a>  <a className='hover:text-gray-500' href="#portfolio">Projects</a>  <a className='hover:text-gray-500' href="#services">Services</a>  <a className='hover:text-gray-500' href="#contact">Contact</a>
             </nav>
-            <div className={`lg:hidden ${menuOpen ? 'block' : 'hidden'}`}>
+            <div className={`lg:hidden pr-2 ${menuOpen ? 'block' : 'hidden'} transition-all ease-in-out duration-300`}>
                 <nav className="flex flex-col items-center space-y-4 mt-4">
                     <a href="#" className="hover:text-gray-400">Home</a>
                     <a href="#portfolio" className="hover:text-gray-400">Projects</a>
-                    <a href="#about" className="hover:text-gray-400">About</a>
+                    <a href="#services" className="hover:text-gray-400">Services</a>
                     <a href="#contact" className="hover:text-gray-400">Contact</a>
                 </nav>
             </div>
