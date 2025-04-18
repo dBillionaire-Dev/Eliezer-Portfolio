@@ -3,9 +3,9 @@ import Eliezer from '/images/Eliezer-headshot.jpg'
 
 const Hero = () => {
     return (
-        <div className='lg:px-15 px-5 py-5 bg-red-50 lg:h-[95vh] h-223  w-[94%] m-[auto] flex lg:flex-row flex-col'>
+        <div className='lg:px-15 px-5 py-5 bg-red-50 lg:h-[95vh] h-230  w-[94%] m-[auto] flex lg:flex-row flex-col'>
             <section>
-                <h1 className='lg:text-8xl text-5xl font-bold tracking-wide'>
+                <h1 className='lg:text-7xl text-5xl font-bold tracking-wide'>
                     Hello, I'm a Freelance Graphic Designer
                 </h1>
                 <p className="lg:font-normal lg:text-5xl text-3xl py-5 lg:leading-15 leading:4.5 lg:mb-5 mb-1">I specialize in  brand identity, social media and marketing design.</p>
