@@ -9,6 +9,7 @@ import Content from './components/Content';
 import Services from './components/Services';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import './index.css'
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
         <Route path="/product" element={<Product />} /> */}
       </Routes>
       <Hero />
-      <Content />
+      <Content className="flex-row" />
       <Services />
       <Contact />
       <Footer />
