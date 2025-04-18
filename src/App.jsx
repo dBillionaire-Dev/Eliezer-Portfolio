@@ -9,12 +9,14 @@ import Content from './components/Content';
 import Services from './components/Services';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import BackToTop from './components/BackToTop';
 import './index.css'
 
 function App() {
   return (
     <Router>
       <Header />
+      <BackToTop />
       <Routes>
         {/* <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

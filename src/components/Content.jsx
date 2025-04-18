@@ -3,7 +3,7 @@ import data from '../data.json';
 
 const Content = () => {
     return (
-        <div className="w-[94%] m-[auto] lg:px-15 px-5 py-5 lg:h-[100vh] ">
+        <div className="w-[94%] m-[auto] lg:px-15 px-5 py-5 lg:h-[100vh]" id='portfolio'>
             <h2 className="lg:text-7xl text-5xl font-bold tracking-wide mb-6">Portfolio</h2>
             <div className="flex lg:flex-row flex-col gap-x-5">
                 {data.map((item) => (
