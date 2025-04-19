@@ -50,7 +50,7 @@ const Project = () => {
                 </nav>
                 <div className={`lg:hidden pr-2 ${menuOpen ? 'block' : 'hidden'} transition-all ease-in-out duration-300`}>
                     <nav className="flex flex-col items-center space-y-4 mt-4">
-                        <a href="#" className="hover:text-gray-400">Home</a>
+                        <Link to="/" className="hover:text-gray-400">Home</Link>
                         <a href="#branding" className="hover:text-gray-400">Brand Identity</a>
                         <a href="#business" className="hover:text-gray-400">Business/Ad Creatives</a>
                         <a href="#poster" className="hover:text-gray-400">Poster Design</a>

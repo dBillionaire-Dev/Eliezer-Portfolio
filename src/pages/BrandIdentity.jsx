@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import brand from '../brand.json';
 import { Link } from "react-router-dom";
 import Logo from '/images/favicon.png'
 import BackToTop from '../components/BackToTop';
 
 const BrandIdentity = () => {
+    const [menuOpen, setMenuOpen] = useState(false);
+    const toggleMenu = () => setMenuOpen(!menuOpen);
 
     return (
         <div className='w-[100%] mb-5'>
@@ -13,12 +15,47 @@ const BrandIdentity = () => {
                 <span className='lg:mb-[-35px] relative lg:-top-6'>
                     <Link to="/" className="text-blue-600 underline"><img src={Logo} alt='Impulse-Grid Logo' className='w-25 h-20' /></Link>
                 </span>
-
-                <nav className="lg:pl-5 relative lg:top-0 lg:left-0 top-5 -left-5">
+                <button
+                    className="block lg:hidden p-2"
+                    onClick={toggleMenu}
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        className="w-6 h-6"
+                    >
+                        {menuOpen ? (
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M6 18L18 6M6 6l12 12"
+                            />
+                        ) : (
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M4 6h16M4 12h16M4 18h16"
+                            />
+                        )}
+                    </svg>
+                </button>
+                <nav className="lg:pl-5 hidden lg:flex space-x-5">
                     <Link to="/project" className="hover:text-gray-500 hover:underline">Designs</Link>
+                    <Link to="/business" className="hover:text-gray-500 hover:underline">Business</Link>
+                    <Link to="/poster" className="hover:text-gray-500 hover:underline">Poster</Link>
                 </nav>
             </div>
-
+            <div className={`lg:hidden pr-2 ${menuOpen ? 'block' : 'hidden'} transition-all ease-in-out duration-300`}>
+                <nav className="flex flex-col items-center space-y-4 mt-4">
+                    <Link to="/project" className="hover:text-gray-500 hover:underline">Designs</Link>
+                    <Link to="/business" className="hover:text-gray-500 hover:underline">Business</Link>
+                    <Link to="/poster" className="hover:text-gray-500 hover:underline">Poster</Link>
+                </nav>
+            </div>
             <div className="w-[94%] m-[auto] lg:px-15 px-5 py-5">
             </div>
 
