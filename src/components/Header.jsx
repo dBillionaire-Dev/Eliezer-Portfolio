@@ -40,7 +40,7 @@ const Header = () => {
                 </svg>
             </button>
             <nav className="hidden lg:flex space-x-10">
-                <Link to="/" className="hover:text-gray-500 hover:underline">Home</Link>  <a className='hover:text-gray-500' href="#portfolio">Projects</a>  <a className='hover:text-gray-500' href="#services">Services</a>  <a className='hover:text-gray-500' href="#contact">Contact</a>
+                <Link to="/" className="hover:text-gray-500 hover:underline">Home</Link>  <a className='hover:text-gray-500 hover:underline' href="#portfolio">Projects</a>  <a className='hover:text-gray-500 hover:underline' href="#services">Services</a>  <a className='hover:text-gray-500 hover:underline' href="#contact">Contact</a>
             </nav>
             <div className={`lg:hidden pr-2 ${menuOpen ? 'block' : 'hidden'} transition-all ease-in-out duration-300`}>
                 <nav className="flex flex-col items-center space-y-4 mt-4">

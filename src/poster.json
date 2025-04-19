@@ -1,0 +1,38 @@
+[
+    {
+        "id": 0,
+        "image": "/images/Poster1.jpg"
+    },
+    {
+        "id": 1,
+        "image": "/images/Poster2.jpg"
+    },
+    {
+        "id": 2,
+        "image": "/images/Poster3.jpg"
+    },
+    {
+        "id": 3,
+        "image": "/images/Poster4.jpg"
+    },
+    {
+        "id": 4,
+        "image": "/images/Poster5.jpg"
+    },
+    {
+        "id": 5,
+        "image": "/images/Poster6.jpg"
+    },
+    {
+        "id": 6,
+        "image": "/images/Poster7.jpg"
+    },
+    {
+        "id": 7,
+        "image": "/images/Poster8.jpg"
+    },
+    {
+        "id": 8,
+        "image": "/images/Poster9.jpg"
+    }
+]

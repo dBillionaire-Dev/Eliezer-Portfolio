@@ -1,0 +1,34 @@
+[
+    {
+        "id": 0,
+        "image": "/images/Social1.jpg"
+    },
+    {
+        "id": 1,
+        "image": "/images/Social2.jpg"
+    },
+    {
+        "id": 2,
+        "image": "/images/Social3.jpg"
+    },
+    {
+        "id": 3,
+        "image": "/images/Social4.jpg"
+    },
+    {
+        "id": 4,
+        "image": "/images/Social5.jpg"
+    },
+    {
+        "id": 5,
+        "image": "/images/Social6.jpg"
+    },
+    {
+        "id": 6,
+        "image": "/images/Social7.jpg"
+    },
+    {
+        "id": 7,
+        "image": "/images/Social8.jpg"
+    }
+]
