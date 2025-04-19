@@ -71,14 +71,14 @@ const Project = () => {
                                 <img
                                     src={item.image}
                                     alt={item.name}
-                                    className='relative w-150 h-60 rounded-2xl shadow-2xl'
+                                    className='relative w-150 lg:h-60 h-80 rounded-2xl shadow-2xl'
                                 />
                             </li>
                             <li className='lg:text-5xl text-2xl font-normal'>{item.name}</li>
                         </section>
                     ))}
                     <span className='mb-5'>
-                        See more...
+                        <Link to="/brand-identity">See more...</Link>
                     </span>
                 </div>
             </div>
@@ -92,14 +92,14 @@ const Project = () => {
                                 <img
                                     src={item.image}
                                     alt={item.name}
-                                    className='relative w-150 h-60 rounded-2xl shadow-2xl'
+                                    className='relative w-150 lg:h-60 h-80 rounded-2xl shadow-2xl'
                                 />
                             </li>
                             <li className='lg:text-5xl text-2xl font-normal'>{item.name}</li>
                         </section>
                     ))}
                     <span className='mb-5'>
-                        See more...
+                        <Link to="/business">See more...</Link>
                     </span>
                 </div>
             </div>
@@ -113,14 +113,14 @@ const Project = () => {
                                 <img
                                     src={item.image}
                                     alt={item.name}
-                                    className='relative w-150 h-60 rounded-2xl shadow-2xl'
+                                    className='relative w-150 lg:h-60 h-80 rounded-2xl shadow-2xl'
                                 />
                             </li>
                             <li className='lg:text-5xl text-2xl font-normal'>{item.name}</li>
                         </section>
                     ))}
-                    <span className='mb-5'>
-                        See more...
+                    <span className='mb-2'>
+                        <Link to="/poster">See more...</Link>
                     </span>
                 </div>
             </div>
