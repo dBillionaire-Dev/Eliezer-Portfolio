@@ -1,5 +1,6 @@
 import React from 'react'
 import data from '../data.json';
+import { Link } from "react-router-dom"
 
 const Content = () => {
     return (
@@ -8,14 +9,16 @@ const Content = () => {
             <div className="flex lg:flex-row flex-col gap-x-5">
                 {data.map((item) => (
                     <section key={item.id} className="relative w-[100%] mb-5">
-                        <li>
-                            <img
-                                src={item.image}
-                                alt={item.name}
-                                className='relative w-[100%] lg:h-[60vh] h-90 rounded-2xl lg:mb-5 mb-2'
-                            />
-                        </li>
-                        <li className='lg:text-5xl text-2xl font-normal'>{item.name}</li>
+                        <Link key={item.id} to={`/${item.slug}`}>
+                            <li>
+                                <img
+                                    src={item.image}
+                                    alt={item.name}
+                                    className='relative w-[100%] lg:h-[60vh] h-90 rounded-2xl lg:mb-5 mb-2'
+                                />
+                            </li>
+                            <li className='lg:text-5xl text-2xl font-normal'>{item.name}</li>
+                        </Link>
                     </section>
                 ))}
             </div>

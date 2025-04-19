@@ -4,6 +4,8 @@ import BrandIdentity from './pages/BrandIdentity';
 import Business from './pages/Business';
 import Poster from './pages/Poster';
 import Project from './pages/Project';
+import ItemPage from './pages/ItemPage';
+
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
 import './index.css'
@@ -19,6 +21,7 @@ function App() {
           <Route path="/poster" element={<Poster />} />
           <Route path="/project" element={<Project />} />
           <Route path="/brand-identity" element={<BrandIdentity />} />
+          <Route path="/:slug" element={<ItemPage />} />
         </Routes>
         <Footer />
       </Router>
