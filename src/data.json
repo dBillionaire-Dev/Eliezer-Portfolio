@@ -1,22 +1,17 @@
 [
     {
         "id": 0,
-        "image": "/images/IMG-20250412-WA0117.jpg",
+        "image": "/images/Brand12.jpg",
         "name": "Brand Identity"
     },
     {
         "id": 1,
-        "image": "/images/IMG-20250412-WA0118.jpg",
-        "name": "Social Media"
+        "image": "/images/Social15.jpg",
+        "name": "Business/Ad Creatives"
     },
     {
         "id": 2,
-        "image": "/images/IMG-20250412-WA0119.jpg",
+        "image": "/images/Poster1.jpg",
         "name": "Poster Design"
-    },
-    {
-        "id": 3,
-        "image": "/images/IMG-20250412-WA0120.jpg",
-        "name": "Corporate Branding"
     }
 ]
