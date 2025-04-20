@@ -1,8 +1,6 @@
 import React from 'react'
 import { SiAdobephotoshop } from "react-icons/si";
 import { SiAdobeillustrator } from "react-icons/si";
-import { SiCanva } from "react-icons/si";
-import { SiPixelfed } from "react-icons/si";
 
 const Tools = () => {
     return (
@@ -14,12 +12,6 @@ const Tools = () => {
                 </span>
                 <span>
                     <SiAdobeillustrator className='text-5xl relative left-3' /> Illustrator
-                </span>
-                <span>
-                    <SiCanva className='text-5xl' /> Canva
-                </span>
-                <span>
-                    <SiPixelfed className='text-5xl relative left-1' /> pixelLab
                 </span>
             </div>
         </div>
