@@ -5,6 +5,7 @@ import poster from '../poster.json';
 import { Link } from "react-router-dom";
 import Logo from '/images/favicon.png'
 import BackToTop from '../components/BackToTop';
+import Tools from '../components/Tools';
 
 const Project = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -47,6 +48,7 @@ const Project = () => {
                 </button>
                 <nav className="hidden lg:flex space-x-5 lg:pl-5">
                     <Link to="/" className="hover:text-gray-500 hover:underline">Home</Link>  <a className='hover:text-gray-500 hover:underline' href="#branding">Brand Identity</a>  <a className='hover:text-gray-500 hover:underline' href="#business">Business/Ad Creatives</a>  <a className='hover:text-gray-500 hover:underline' href="#poster">Poster Design</a>
+                    <a href="#tools" className="hover:text-gray-400">Tools</a>
                 </nav>
                 <div className={`lg:hidden pr-2 ${menuOpen ? 'block' : 'hidden'} transition-all ease-in-out duration-300`}>
                     <nav className="flex flex-col items-center space-y-4 mt-4">
@@ -54,6 +56,7 @@ const Project = () => {
                         <a href="#branding" className="hover:text-gray-400">Brand Identity</a>
                         <a href="#business" className="hover:text-gray-400">Business/Ad Creatives</a>
                         <a href="#poster" className="hover:text-gray-400">Poster Design</a>
+                        <a href="#tools" className="hover:text-gray-400">Tools</a>
                     </nav>
                 </div>
             </div>
@@ -123,6 +126,9 @@ const Project = () => {
                         <Link to="/poster">See more...</Link>
                     </span>
                 </div>
+            </div>
+            <div id="tools">
+                <Tools />
             </div>
         </div >
     )
