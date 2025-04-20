@@ -3,6 +3,7 @@ import poster from '../poster.json';
 import { Link } from "react-router-dom";
 import Logo from '/images/favicon.png'
 import BackToTop from '../components/BackToTop';
+import EnlargeableImage from '../components/EnlargeableImage';
 
 const Poster = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -65,7 +66,7 @@ const Poster = () => {
                     {poster.map((item) => (
                         <section key={item.id}>
                             <li>
-                                <img
+                                <EnlargeableImage
                                     src={item.image}
                                     alt={item.name}
                                     className='relative w-150 lg:h-60 h-80 rounded-2xl shadow-2xl md:w-180 md:h-100'

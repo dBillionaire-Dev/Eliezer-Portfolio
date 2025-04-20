@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Logo from '/images/favicon.png'
 import BackToTop from '../components/BackToTop';
 import Tools from '../components/Tools';
+import EnlargeableImage from '../components/EnlargeableImage';
 
 const Project = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -71,7 +72,7 @@ const Project = () => {
                     {brand.slice(0, 3).map((item) => (
                         <section key={item.id}>
                             <li>
-                                <img
+                                <EnlargeableImage
                                     src={item.image}
                                     alt={item.name}
                                     className='relative w-150 lg:h-60 md:w-180 md:h-100 h-80 rounded-2xl shadow-2xl'
@@ -92,7 +93,7 @@ const Project = () => {
                     {business.slice(0, 3).map((item) => (
                         <section key={item.id}>
                             <li>
-                                <img
+                                <EnlargeableImage
                                     src={item.image}
                                     alt={item.name}
                                     className='relative w-150 lg:h-60 md:w-180 md:h-100 h-80 rounded-2xl shadow-2xl'
@@ -113,7 +114,7 @@ const Project = () => {
                     {poster.slice(0, 3).map((item) => (
                         <section key={item.id}>
                             <li>
-                                <img
+                                <EnlargeableImage
                                     src={item.image}
                                     alt={item.name}
                                     className='relative w-150 lg:h-60 h-80 md:w-180 md:h-100 rounded-2xl shadow-2xl'

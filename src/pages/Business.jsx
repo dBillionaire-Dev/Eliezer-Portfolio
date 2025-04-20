@@ -3,6 +3,7 @@ import business from '../business.json';
 import { Link } from "react-router-dom";
 import Logo from '/images/favicon.png'
 import BackToTop from '../components/BackToTop';
+import EnlargeableImage from '../components/EnlargeableImage';
 
 const Business = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -65,7 +66,7 @@ const Business = () => {
                     {business.map((item) => (
                         <section key={item.id}>
                             <li>
-                                <img
+                                <EnlargeableImage
                                     src={item.image}
                                     alt={item.name}
                                     className='relative w-150 lg:h-60 h-80 md:w-180 md:h-100 rounded-2xl shadow-2xl'
