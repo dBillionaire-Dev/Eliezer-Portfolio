@@ -35,22 +35,25 @@ const Contact = () => {
         }
     };
 
-    // if (state.succeeded) return <p className='text-2xl font-semibold text-center'>Thanks for reaching out!</p>;
+    const resetFormAndState = () => {
+        setFormData({ name: '', email: '', message: '' });
+        setErrors({});
+        setShowForm(false);
+    };
 
     useEffect(() => {
         if (state.succeeded) {
             setShowPopup(true);
-            setTimeout(() => setShowPopup(false), 4000);
+            const timer = setTimeout(() => {
+                setShowPopup(false);
+                resetFormAndState(); 
+            }, 4000);
+            return () => clearTimeout(timer);
         }
     }, [state.succeeded]);
 
 
     const [showPopup, setShowPopup] = useState(false);
-
-    if (state.succeeded && !showPopup) {
-        setShowPopup(true);
-        setTimeout(() => setShowPopup(false), 3000);
-    }
 
     return (
         <>
@@ -60,12 +63,17 @@ const Contact = () => {
                     <div className="bg-white p-8 rounded-2xl shadow-2xl text-center max-w-sm animate-bounce-in">
                         <h2 className="text-3xl font-bold text-green-600 mb-2">Thank you!</h2>
                         <p className="text-lg text-gray-700">Your message has been successfully received. <br />I’ll reach out to you soon!</p>
+
                         <button
                             className="mt-4 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition"
-                            onClick={() => setShowPopup(false)}
+                            onClick={() => {
+                                setShowPopup(false);
+                                resetFormAndState();
+                            }}
                         >
-                            Close
+                            Ok
                         </button>
+
                     </div>
                 </div>
             )}
@@ -93,12 +101,12 @@ const Contact = () => {
 
                             <span className='flex justify-center'>
                                 <form onSubmit={onSubmit} className="flex flex-col lg:gap-5 gap-4 w-full max-w-md mt-4 bg-white p-6 rounded-xl shadow-lg">
-                                    <label htmlFor="fname" className="flex flex-col">
+                                    <label htmlFor="name" className="flex flex-col">
                                         Name:
                                         <input
                                             type="text"
-                                            name='fname'
-                                            id='fname'
+                                            name='name'
+                                            id='name'
                                             className="border p-2 rounded"
                                             placeholder='John Doe'
                                             value={formData.fname}
