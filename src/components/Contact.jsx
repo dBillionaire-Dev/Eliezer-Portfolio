@@ -17,7 +17,7 @@ const Contact = () => {
 
     const validateForm = () => {
         let newErrors = {};
-        if (!formData.fname.trim()) newErrors.fname = "Name is required.";
+        if (!formData.name.trim()) newErrors.name = "Name is required.";
         if (!formData.email.trim()) {
             newErrors.email = "Email is required.";
         } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
