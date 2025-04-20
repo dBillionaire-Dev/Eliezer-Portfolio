@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { FaWhatsapp } from "react-icons/fa";
 import { FaTiktok } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 // import { useForm, ValidationError } from '@formspree/react';
@@ -31,7 +31,7 @@ const Contact = () => {
                 {showForm && (
                     <div className='flex lg:flex-row flex-col-reverse'>
                         <span className='relative lg:-left-201 lg:top-50 flex justify-center lg:gap-5 gap-3 pt-3 text-3xl'>
-                            <a href='https://wa.me/c/2349039143840' target='_blank'><FaWhatsapp /></a> <a href='https://www.tiktok.com/@impulse.grid' target='_blank'><FaTiktok /></a> <a href='https://x.com/impulse_grid' target='_blank'><FaTwitter /></a> <a href='https://www.linkedin.com/in/eli-ekunke-6921112a5?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app' target='_blank'><FaLinkedin /></a> <a href='https://www.instagram.com/impulse.grid' target='_blank'><FaInstagram /></a>
+                            <a href='https://wa.me/c/2349039143840' target='_blank'><FaWhatsapp /></a> <a href='https://www.tiktok.com/@impulse.grid' target='_blank'><FaTiktok /></a> <a href='https://x.com/impulse_grid' target='_blank'><FaXTwitter /></a> <a href='https://www.linkedin.com/in/eli-ekunke-6921112a5?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app' target='_blank'><FaLinkedin /></a> <a href='https://www.instagram.com/impulse.grid' target='_blank'><FaInstagram /></a>
                         </span>
                         <span>
                             <form action="https://formspree.io/f/mldjykgj" method="POST" className="flex flex-col lg:gap-5 gap-4 w-full max-w-md mt-4 bg-white p-6 rounded-xl shadow-lg">
