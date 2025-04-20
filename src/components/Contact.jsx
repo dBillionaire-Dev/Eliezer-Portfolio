@@ -7,7 +7,7 @@ const Contact = () => {
     const [showForm, setShowForm] = useState(false);
     const [state, handleSubmit] = useForm("movdaakk");
     const [formData, setFormData] = useState({
-        fname: '',
+        name: '',
         email: '',
         message: ''
     });
