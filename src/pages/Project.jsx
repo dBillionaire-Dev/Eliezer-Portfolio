@@ -67,14 +67,14 @@ const Project = () => {
 
             <div id="branding" className='relative w-[94%] m-[auto]'>
                 <h2 className='lg:text-5xl text-3xl font-bold tracking-wide text-center'>Brand Identity</h2>
-                <div className='grid lg:grid-cols-3 gap-4 pt-5'>
+                <div className='grid lg:grid-cols-3 gap-4 pt-5 justify-center'>
                     {brand.slice(0, 3).map((item) => (
                         <section key={item.id}>
                             <li>
                                 <img
                                     src={item.image}
                                     alt={item.name}
-                                    className='relative w-150 lg:h-60 h-80 rounded-2xl shadow-2xl'
+                                    className='relative w-150 lg:h-60 md:w-180 md:h-100 h-80 rounded-2xl shadow-2xl'
                                 />
                             </li>
                             <li className='lg:text-5xl text-2xl font-normal'>{item.name}</li>
@@ -88,14 +88,14 @@ const Project = () => {
 
             <div id="business" className='relative w-[94%] m-[auto]'>
                 <h2 className='lg:text-5xl text-3xl font-bold tracking-wide text-center'>Business/Ad Creative</h2>
-                <div className='grid lg:grid-cols-3 gap-4 pt-5'>
+                <div className='grid lg:grid-cols-3 gap-4 pt-5 justify-center'>
                     {business.slice(0, 3).map((item) => (
                         <section key={item.id}>
                             <li>
                                 <img
                                     src={item.image}
                                     alt={item.name}
-                                    className='relative w-150 lg:h-60 h-80 rounded-2xl shadow-2xl'
+                                    className='relative w-150 lg:h-60 md:w-180 md:h-100 h-80 rounded-2xl shadow-2xl'
                                 />
                             </li>
                             <li className='lg:text-5xl text-2xl font-normal'>{item.name}</li>
@@ -109,14 +109,14 @@ const Project = () => {
 
             <div id="poster" className='relative w-[94%] m-[auto] mb-5'>
                 <h2 className='lg:text-5xl text-3xl font-bold tracking-wide text-center'>Poster Design</h2>
-                <div className='grid lg:grid-cols-3 gap-4 pt-5'>
+                <div className='grid lg:grid-cols-3 gap-4 pt-5 justify-center'>
                     {poster.slice(0, 3).map((item) => (
                         <section key={item.id}>
                             <li>
                                 <img
                                     src={item.image}
                                     alt={item.name}
-                                    className='relative w-150 lg:h-60 h-80 rounded-2xl shadow-2xl'
+                                    className='relative w-150 lg:h-60 h-80 md:w-180 md:h-100 rounded-2xl shadow-2xl'
                                 />
                             </li>
                             <li className='lg:text-5xl text-2xl font-normal'>{item.name}</li>

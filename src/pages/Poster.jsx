@@ -61,14 +61,14 @@ const Poster = () => {
 
             <div id="branding" className='relative w-[94%] m-[auto]'>
                 <h2 className='lg:text-5xl text-3xl font-bold tracking-wide text-center'>Poster Designs</h2>
-                <div className='grid lg:grid-cols-3 gap-4 pt-5'>
+                <div className='grid lg:grid-cols-3 gap-4 pt-5 justify-center'>
                     {poster.map((item) => (
                         <section key={item.id}>
                             <li>
                                 <img
                                     src={item.image}
                                     alt={item.name}
-                                    className='relative w-150 lg:h-60 h-80 rounded-2xl shadow-2xl'
+                                    className='relative w-150 lg:h-60 h-80 rounded-2xl shadow-2xl md:w-180 md:h-100'
                                 />
                             </li>
                             <li className='lg:text-5xl text-2xl font-normal'>{item.name}</li>
