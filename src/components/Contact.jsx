@@ -5,7 +5,7 @@ import { useForm, ValidationError } from '@formspree/react';
 
 const Contact = () => {
     const [showForm, setShowForm] = useState(false);
-    const [state, handleSubmit] = useForm("mldjykgj");
+    const [state, handleSubmit] = useForm("movdaakk");
     const [formData, setFormData] = useState({
         fname: '',
         email: '',
@@ -46,7 +46,7 @@ const Contact = () => {
             setShowPopup(true);
             const timer = setTimeout(() => {
                 setShowPopup(false);
-                resetFormAndState(); 
+                resetFormAndState();
             }, 4000);
             return () => clearTimeout(timer);
         }
@@ -109,10 +109,10 @@ const Contact = () => {
                                             id='name'
                                             className="border p-2 rounded"
                                             placeholder='John Doe'
-                                            value={formData.fname}
-                                            onChange={(e) => setFormData({ ...formData, fname: e.target.value })}
+                                            value={formData.name}
+                                            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                         />
-                                        {errors.fname && <p className="text-red-500 text-sm">{errors.fname}</p>}
+                                        {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
                                     </label>
 
                                     <label htmlFor="email" className="flex flex-col">
