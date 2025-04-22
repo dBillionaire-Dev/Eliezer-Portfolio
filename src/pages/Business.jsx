@@ -12,7 +12,7 @@ const Business = () => {
     return (
         <div className='w-[100%] mb-5'>
             <BackToTop />
-            <div className="lg:pt-5 lg:pb-1 w-[97%] bg-black relative mt-3 m-[auto] text-white text-lg font-semibold flex lg:justify-around lg:gap-250 justify-between shadow-2xl rounded-2xl">
+            <div className="lg:pt-5 lg:pb-1 w-[97%] bg-black relative mt-3 m-[auto] text-white text-lg font-semibold flex lg:justify-around lg:gap-250 xl:gap-200 justify-between shadow-2xl rounded-2xl">
                 <span className='lg:mb-[-35px] relative lg:-top-6'>
                     <Link to="/" className="text-blue-600 underline"><img src={Logo} alt='Impulse-Grid Logo' className='w-25 h-20' /></Link>
                 </span>
