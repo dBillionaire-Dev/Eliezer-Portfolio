@@ -1,15 +1,15 @@
 [
     {
         "id": 0,
-        "image": "/images/Brand1.jpg"
+        "image": "/images/Brand1.png"
     },
     {
         "id": 1,
-        "image": "/images/Brand2.jpg"
+        "image": "/images/Brand2.png"
     },
     {
         "id": 2,
-        "image": "/images/Brand3.jpg"
+        "image": "/images/Brand3.png"
     },
     {
         "id": 3,
@@ -46,5 +46,21 @@
     {
         "id": 11,
         "image": "/images/Brand12.jpg"
+    },
+    {
+        "id": 12,
+        "image": "/images/Brand13.jpg"
+    },
+    {
+        "id": 13,
+        "image": "/images/Brand14.jpg"
+    },
+    {
+        "id": 14,
+        "image": "/images/Brand15.jpg"
+    },
+    {
+        "id": 15,
+        "image": "/images/Brand16.jpg"
     }
 ]
