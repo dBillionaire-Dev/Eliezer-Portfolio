@@ -19,82 +19,82 @@ const BrandIdentity = () => {
       description: "Logo and brand system for consulting firm"
     },
     {
-      title: "Juankes Industry",
-      category: "Industrial Brand",
-      image: "/images/Brand/Brand3.png",
-      description: "Industrial company brand identity and materials"
-    },
-    {
-      title: "Velox Enterprise",
-      category: "Corporate Identity",
-      image: "/images/Brand/Brand4.jpg",
-      description: "Modern corporate brand for enterprise solutions"
-    },
-    {
-      title: "ASR Auto Detailing",
+      title: "ABR Auto Detailing",
       category: "Automotive Services",
-      image: "/images/Brand/Brand5.jpg",
+      image: "/images/Brand/Brand3.png",
+      description: "Automobile company brand identity and materials"
+    },
+    {
+      title: "ABR Auto Detailing",
+      category: "Automotive Services",
+      image: "/images/Brand/Brand4.jpg",
       description: "Brand identity for premium auto detailing services"
     },
     {
-      title: "Excellence Standards",
-      category: "Quality Assurance",
+      title: "ABR Auto Detailing",
+      category: "Automotive Services",
+      image: "/images/Brand/Brand5.jpg",
+      description: "Premium Brand identity for auto detailing company"
+    },
+    {
+      title: "ABR Auto Detailing",
+      category: "Automotive Services",
       image: "/images/Brand/Brand6.jpg",
       description: "Professional brand for quality standards company"
     },
     {
-      title: "ASR Auto Detailing",
+      title: "ABR Auto Detailing",
       category: "Automotive Services",
       image: "/images/Brand/Brand7.jpg",
       description: "Brand identity for premium auto detailing services"
     },
     {
-      title: "ASR Auto Detailing",
+      title: "ABR Auto Detailing",
       category: "Automotive Services",
       image: "/images/Brand/Brand8.jpg",
       description: "Brand identity for premium auto detailing services"
     },
     {
-      title: "ASR Auto Detailing",
-      category: "Automotive Services",
+      title: "ABR Auto Detailing",
+      category: "Production Co.",
       image: "/images/Brand/Brand9.jpg",
-      description: "Brand identity for premium auto detailing services"
+      description: "Business Card Design for a Soap Production Company"
     },
     {
-      title: "ASR Auto Detailing",
-      category: "Automotive Services",
+      title: "Business Detail",
+      category: "Production Co.",
       image: "/images/Brand/Brand10.jpg",
-      description: "Brand identity for premium auto detailing services"
+      description: "Business Card Design for a Soap Production Company"
     },
     {
-      title: "ASR Auto Detailing",
-      category: "Automotive Services",
+      title: "Business Card",
+      category: "Personal Branding",
       image: "/images/Brand/Brand11.jpg",
-      description: "Brand identity for premium auto detailing services"
+      description: "Business Card Design for a Digital Creator"
     },
     {
-      title: "ASR Auto Detailing",
-      category: "Automotive Services",
+      title: "ZDGWORLD Inc.",
+      category: "Personal Branding",
       image: "/images/Brand/Brand12.jpg",
-      description: "Brand identity for premium auto detailing services"
+      description: "Business Card Design for a Digital Creator"
     },
     {
-      title: "ASR Auto Detailing",
-      category: "Automotive Services",
+      title: "Juannes Industry",
+      category: "Co-operate Branding",
       image: "/images/Brand/Brand13.jpg",
-      description: "Brand identity for premium auto detailing services"
+      description: "Business Card Design for an ICT Company"
     },
     {
-      title: "ASR Auto Detailing",
-      category: "Automotive Services",
+      title: "Business Card",
+      category: "Co-operate Branding",
       image: "/images/Brand/Brand14.jpg",
-      description: "Brand identity for premium auto detailing services"
+      description: "Business Card Design for an ICT Company"
     },
     {
-      title: "ASR Auto Detailing",
-      category: "Automotive Services",
+      title: "Logo Design",
+      category: "Co-operate Branding",
       image: "/images/Brand/Brand15.jpg",
-      description: "Brand identity for premium auto detailing services"
+      description: "Logo Design for a Consulting Brand"
     }
   ];
 

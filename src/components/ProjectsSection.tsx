@@ -7,14 +7,14 @@ const ProjectsSection = () => {
     {
       title: "Brand Identity",
       category: "Corporate Design",
-      image: "/images/Brand/Brand1.png",
+      image: "/images/Brand/Brand3.png",
       description: "Complete brand identity solutions for modern businesses",
       link: "/brand-identity"
     },
     {
       title: "Business/Ad Creatives",
       category: "Marketing Materials",
-      image: "/images/Social/Social1.png",
+      image: "/images/Social/Social8.jpg",
       description: "Eye-catching advertisements and business collaterals",
       link: "/business-creatives"
     },
