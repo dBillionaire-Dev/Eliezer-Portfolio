@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Mail, Phone, MapPin, Heart } from 'lucide-react';
 
 const Footer = () => {
@@ -22,11 +23,11 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-white font-semibold">Quick Links</h3>
             <ul className="space-y-2">
-              <li><a href="/" className="text-gray-400 hover:text-orange-400 transition-colors duration-200 text-sm">Home</a></li>
-              <li><a href="/brand-identity" className="text-gray-400 hover:text-orange-400 transition-colors duration-200 text-sm">Brand Identity</a></li>
-              <li><a href="/business-creatives" className="text-gray-400 hover:text-orange-400 transition-colors duration-200 text-sm">Business Creatives</a></li>
-              <li><a href="/poster-design" className="text-gray-400 hover:text-orange-400 transition-colors duration-200 text-sm">Poster Design</a></li>
-              <li><a href="/services" className="text-gray-400 hover:text-orange-400 transition-colors duration-200 text-sm">Services</a></li>
+              <li><Link href="/" className="text-gray-400 hover:text-orange-400 transition-colors duration-200 text-sm">Home</Link></li>
+              <li><Link href="/brand-identity" className="text-gray-400 hover:text-orange-400 transition-colors duration-200 text-sm">Brand Identity</Link></li>
+              <li><Link href="/business-creatives" className="text-gray-400 hover:text-orange-400 transition-colors duration-200 text-sm">Business Creatives</Link></li>
+              <li><Link href="/poster-design" className="text-gray-400 hover:text-orange-400 transition-colors duration-200 text-sm">Poster Design</Link></li>
+              <li><Link href="/services" className="text-gray-400 hover:text-orange-400 transition-colors duration-200 text-sm">Services</Link></li>
             </ul>
           </div>
 
@@ -40,7 +41,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-4 h-4 text-orange-400" />
-                <span className="text-gray-400 text-sm hover:text-orange-400 transition-colors duration-200"><a href='tel:+2349039143840' target="_blank">+234-903-914-3840</a></span>
+                <span className="text-gray-400 text-sm hover:text-orange-400 transition-colors duration-200"><a href='tel:+2349046060954' target="_blank">+234-904-606-0954</a></span>
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin className="w-4 h-4 text-orange-400" />
