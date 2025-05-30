@@ -36,7 +36,7 @@ const Hero = () => {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
-                <button 
+                <button
                   onClick={scrollToProjects}
                   className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-medium transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105"
                 >
@@ -60,7 +60,7 @@ const Hero = () => {
                   <img
                     src={Eliezer}
                     alt="Eliezer Ekunke - Graphic Designer"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
                   />
                 </div>
               </div>

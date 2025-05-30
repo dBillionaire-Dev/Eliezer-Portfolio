@@ -23,11 +23,11 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-white font-semibold">Quick Links</h3>
             <ul className="space-y-2">
-              <li><Link href="/" className="text-gray-400 hover:text-orange-400 transition-colors duration-200 text-sm">Home</Link></li>
-              <li><Link href="/brand-identity" className="text-gray-400 hover:text-orange-400 transition-colors duration-200 text-sm">Brand Identity</Link></li>
-              <li><Link href="/business-creatives" className="text-gray-400 hover:text-orange-400 transition-colors duration-200 text-sm">Business Creatives</Link></li>
-              <li><Link href="/poster-design" className="text-gray-400 hover:text-orange-400 transition-colors duration-200 text-sm">Poster Design</Link></li>
-              <li><Link href="/services" className="text-gray-400 hover:text-orange-400 transition-colors duration-200 text-sm">Services</Link></li>
+              <li><Link to="/" className="text-gray-400 hover:text-orange-400 transition-colors duration-200 text-sm">Home</Link></li>
+              <li><Link to="/brand-identity" className="text-gray-400 hover:text-orange-400 transition-colors duration-200 text-sm">Brand Identity</Link></li>
+              <li><Link to="/business-creatives" className="text-gray-400 hover:text-orange-400 transition-colors duration-200 text-sm">Business Creatives</Link></li>
+              <li><Link to="/poster-design" className="text-gray-400 hover:text-orange-400 transition-colors duration-200 text-sm">Poster Design</Link></li>
+              <li><Link to="/services" className="text-gray-400 hover:text-orange-400 transition-colors duration-200 text-sm">Services</Link></li>
             </ul>
           </div>
 
