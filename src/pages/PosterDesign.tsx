@@ -53,6 +53,12 @@ const PosterDesign = () => {
       category: "Headphones Arrival",
       image: "/images/Poster/Poster8.jpg",
       description: "Headphones Product Design Poster"
+    },
+    {
+      title: "Birthday Card",
+      category: "Celebration Poster",
+      image: "/images/Poster/Poster9.png",
+      description: "Birthday Event Poster Design"
     }
   ];
 
