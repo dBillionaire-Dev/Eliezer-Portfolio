@@ -44,7 +44,7 @@ const Hero = () => {
                   <ArrowRight size={20} />
                 </button>
 
-                <a href="files/Eliezer_Ekunke_Resume.pdf" download="Eliezer Ekunke's Resume.pdf">
+                <a href="files/Eliezer Ekunke (CV).pdf" download="Eliezer Ekunke's Resume.pdf">
                   <button className="border-2 border-orange-400 text-orange-400 hover:bg-orange-400 hover:text-white px-8 py-4 rounded-lg font-medium transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105">
                     Download My CV
                     <Download size={20} />
