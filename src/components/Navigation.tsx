@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import { Menu, X } from 'lucide-react';
 import Logo from '/logo.png'
 
@@ -14,6 +15,7 @@ const Navigation = () => {
     { name: 'Business/Ad Creatives', path: '/business-creatives' },
     { name: 'Poster Design', path: '/poster-design' },
     { name: 'Services', path: '/services' },
+    { name: 'Contact Me', path: '/#contact' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -36,17 +38,16 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
             {navItems.map((item) => (
-              <Link
+              <HashLink
                 key={item.name}
+                smooth
                 to={item.path}
-                className={`relative transition-colors duration-200 hover:text-orange-400 ${
-                  isActive(item.path) ? 'text-orange-400' : 'text-gray-300'
-                } after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-orange-400 after:bottom-[-4px] after:left-0 after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100 ${
-                  isActive(item.path) ? 'after:scale-x-100' : ''
-                }`}
+                className={`relative transition-colors duration-200 hover:text-orange-400 ${isActive(item.path) ? 'text-orange-400' : 'text-gray-300'
+                  } after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-orange-400 after:bottom-[-4px] after:left-0 after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100 ${isActive(item.path) ? 'after:scale-x-100' : ''
+                  }`}
               >
                 {item.name}
-              </Link>
+              </HashLink>
             ))}
           </div>
 
@@ -67,9 +68,8 @@ const Navigation = () => {
                 <Link
                   key={item.name}
                   to={item.path}
-                  className={`block px-3 py-2 text-base font-medium transition-colors duration-200 hover:text-orange-400 ${
-                    isActive(item.path) ? 'text-orange-400' : 'text-gray-300'
-                  }`}
+                  className={`block px-3 py-2 text-base font-medium transition-colors duration-200 hover:text-orange-400 ${isActive(item.path) ? 'text-orange-400' : 'text-gray-300'
+                    }`}
                   onClick={handleNavClick}
                 >
                   {item.name}
