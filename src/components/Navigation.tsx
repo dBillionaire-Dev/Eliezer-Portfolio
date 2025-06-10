@@ -65,7 +65,7 @@ const Navigation = () => {
           <div className="md:hidden border-t" style={{ backgroundColor: '#324391', borderColor: '#5A6FA3' }}>
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) => (
-                <Link
+                <HashLink
                   key={item.name}
                   to={item.path}
                   className={`block px-3 py-2 text-base font-medium transition-colors duration-200 hover:text-orange-400 ${isActive(item.path) ? 'text-orange-400' : 'text-gray-300'
@@ -73,7 +73,7 @@ const Navigation = () => {
                   onClick={handleNavClick}
                 >
                   {item.name}
-                </Link>
+                </HashLink>
               ))}
             </div>
           </div>
