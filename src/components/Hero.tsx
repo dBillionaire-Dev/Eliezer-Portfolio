@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { ArrowRight, Download } from 'lucide-react';
-import Eliezer from '/Eliezer-headshot.jpg';
+import Eliezer from '/Eliezer-headshot.png';
 
 const Hero = () => {
   const scrollToProjects = () => {
