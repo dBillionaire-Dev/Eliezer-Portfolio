@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import axios from 'axios';
 import { Mail, MapPin, Phone, Send } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
@@ -10,6 +11,8 @@ const ContactSection = () => {
     subject: '',
     message: ''
   });
+
+  const [status, setStatus] = useState('');
   const { toast } = useToast();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -19,43 +22,40 @@ const ContactSection = () => {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setStatus('Sending...');
 
     try {
-      const response = await fetch('https://formspree.io/f/movdaakk', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
+      const response = await axios.post('http://localhost:3000/api/messages', formData);
+      if (response.data.success) {
+        setStatus('Message sent successfully!');
         toast({
           title: "Message sent successfully!",
           description: "I'll get back to you as soon as possible.",
         });
-        setFormData({
-          name: '',
-          email: '',
-          subject: '',
-          message: ''
+        setFormData({ 
+          name: '', 
+          email: '', 
+          subject: '', 
+          message: '' 
         });
       } else {
+        setStatus('Something went wrong. Please try again.');
         toast({
-          title: "Failed to send message",
+          title: "Something went wrong. Please try again",
           description: "Please try again later.",
           variant: "destructive",
         });
       }
     } catch (error) {
-      console.error('Error sending message:', error);
+      console.error('Error sending message',error);
+      setStatus('Failed to send message.');
       toast({
-        title: "Failed to send message",
-        description: "Please try again later.",
-        variant: "destructive",
-      });
+          title: "Failed to send message",
+          description: "Please try again later.",
+          variant: "destructive",
+        });
     }
   };
 
