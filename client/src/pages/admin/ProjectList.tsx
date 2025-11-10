@@ -32,7 +32,7 @@ const ProjectList: React.FC = () => {
       {projects.map((p) => (
         <div key={p._id} className="border rounded-lg overflow-hidden shadow">
           <img
-            src={`http://localhost:3000${p.imageUrl}`}
+            src={`${import.meta.env.VITE_API_URL}${p.imageUrl}`}
             alt={p.title}
             className="w-full h-48 object-cover "
           />

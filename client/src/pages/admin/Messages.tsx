@@ -8,7 +8,7 @@ const Messages: React.FC = () => {
   const [messages, setMessages] = useState<any[]>([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/api/messages", {
+    axios.get(`${import.meta.env.VITE_API_URL}/api/messages`, {
       headers: { Authorization: `Bearer ${token}` },
     })
     .then((res) => setMessages(res.data.message))

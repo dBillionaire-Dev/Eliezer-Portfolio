@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { Sidebar } from "@/components/Sidebar";
 
@@ -12,6 +13,7 @@ const AddProject: React.FC = () => {
   const [image, setImage] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
   const [message, setMessage] = useState("");
+  const Navigate = useNavigate();
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -33,11 +35,13 @@ const AddProject: React.FC = () => {
     formData.append("image", image);
 
     try {
-      const res = await axios.post("http://localhost:3000/api/projects", formData, {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/projects`, formData, {
         headers: { Authorization: `Bearer ${token}`, "Content-Type": "multipart/form-data" },
       });
       setMessage("✅ Project added successfully!");
       setTitle(""); setPageCategory(""); setCategory(""); setDescription(""); setImage(null); setPreview(null);
+
+      Navigate("/admin");
     } catch (err: any) {
       setMessage(err.response?.data?.message || "Failed to add project");
     }
