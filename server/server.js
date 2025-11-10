@@ -15,18 +15,18 @@ const messageRoutes = require('./src/routes/messageRoutes');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors({ 
-  origin: 'https://eliezer-portfolio.vercel.app/',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true,
-  allowedHeaders: 'Content-Type,Authorization'
-})
-); 
 app.use(express.json());
 app.use(express.urlencoded({ 
   extended: true 
 })
 );
+app.use(cors({ 
+  origin: ['https://eliezer-portfolio.vercel.app', 'https://eliezer-portfolio.vercel.app/'],
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+  allowedHeaders: 'Content-Type,Authorization'
+})
+); 
 
 app.use('/api/auth', authRoutes);
 app.use('/api/messages', messageRoutes);
