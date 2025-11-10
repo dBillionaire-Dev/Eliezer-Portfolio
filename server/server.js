@@ -16,8 +16,10 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors({ 
-  origin: 'https://eliezer-portfolio.vercel.app',
-  credentials: true 
+  origin: 'https://eliezer-portfolio.vercel.app/',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+  allowedHeaders: 'Content-Type,Authorization'
 })
 ); 
 app.use(express.json());
