@@ -21,7 +21,7 @@ app.use(express.urlencoded({
 })
 );
 app.use(cors({ 
-  origin: ['https://eliezer-portfolio.vercel.app', 'https://eliezer-portfolio.vercel.app/'],
+  origin: ['https://impulse-grid.vercel.app', 'https://impulse-grid.vercel.app/'],
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
   allowedHeaders: 'Content-Type,Authorization'
