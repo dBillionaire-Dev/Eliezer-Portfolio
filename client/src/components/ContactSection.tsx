@@ -27,7 +27,8 @@ const handleSubmit = async (e: React.FormEvent) => {
     setStatus('Sending...');
 
     try {
-      const response = await axios.post('http://localhost:3000/api/messages', formData);
+      const apiUrl = `${import.meta.env.VITE_API_URL}/api/messages`;
+      const response = await axios.post(apiUrl, formData);
       if (response.data.success) {
         setStatus('Message sent successfully!');
         toast({
