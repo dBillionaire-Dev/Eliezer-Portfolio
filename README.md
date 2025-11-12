@@ -34,7 +34,7 @@ This project follows a full-stack architecture, combining powerful, modern JavaS
 | **TypeScript** | Used for type safety and code reliability. |
 | **Vite** | Fast development environment and build tool. |
 | **React Router** | For client-side navigation and protected routing (`AdminLayout`). |
-| **Axios** for API communication. |
+| **Axios** | For API communication. |
 | **Tailwind CSS** | Utility-first CSS framework for rapid styling. |
 
 ### Backend & Database
@@ -46,7 +46,7 @@ This project follows a full-stack architecture, combining powerful, modern JavaS
 | **MongoDB** | Cloud-hosted NoSQL database service. |
 | **Mongoose** | ODM (Object Data Modeling) library for MongoDB. |
 | **JWT** | JSON Web Tokens for secure, stateless authentication in the Admin section. |
-| **CORS** configuration for cross-origin communication. |
+| **CORS** configuration | For cross-origin communication. |
 | **Multer** | Middleware for handling `multipart/form-data` (file uploads). |
 
 -----
