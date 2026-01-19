@@ -1,3 +1,4 @@
+import { Suspense, lazy } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -5,22 +6,32 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
-import BrandIdentity from "./pages/BrandIdentity";
-import BusinessCreatives from "./pages/BusinessCreatives";
-import PosterDesign from "./pages/PosterDesign";
-import Services from "./pages/Services";
+const BrandIdentity = lazy(() => 
+  import("./pages/BrandIdentity"));
+const BusinessCreatives = lazy(() => 
+  import("./pages/BusinessCreatives"));
+const PosterDesign = lazy(() => 
+  import("./pages/PosterDesign"));
+const Services = lazy(() => 
+  import("./pages/Services"));
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 import { AuthProvider } from "./context/AuthContext";
 
-// 🔐 Admin imports
+// Admin imports
 import RequireAdminAuth from "@/components/RequireAdminAuth";
-import AdminLayout from "./pages/admin/AdminLayout";
-import AdminLogin from "./pages/admin/Login";
-import AddProject from "./pages/admin/AddProject";
-import AdminDashboard from "./pages/admin/Dashboard";
-import EditProject from "./pages/admin/EditProject";
-import Messages from "./pages/admin/Messages";
+const AdminLayout = lazy(() => 
+  import("./pages/admin/AdminLayout"));
+const AdminLogin = lazy(() => 
+  import("./pages/admin/Login"));
+const AddProject = lazy(() => 
+  import("./pages/admin/AddProject"));
+const AdminDashboard = lazy(() => 
+  import("./pages/admin/Dashboard"));
+const EditProject = lazy(() => 
+  import("./pages/admin/EditProject"));
+const Messages = lazy(() => 
+  import("./pages/admin/Messages"));
 
 const queryClient = new QueryClient();
 
@@ -32,8 +43,9 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
+        <Suspense fallback={<Loading />}>
         <Routes>
-          {/* 🌍 Public Site */}
+          {/* Public Site */}
           <Route element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="brand-identity" element={<BrandIdentity />} />
@@ -42,7 +54,7 @@ const App = () => (
             <Route path="services" element={<Services />} />
           </Route>
 
-          {/* 🔐 Admin Section */}
+          {/* Admin Section */}
           <Route path="admin/login" element={<AdminLogin />} />
          <Route element={<RequireAdminAuth />}>
           <Route path="admin" element={<AdminLayout />}>
@@ -53,11 +65,12 @@ const App = () => (
           </Route>
          </Route>
 
-      <Route path="admin/" element={<Navigate to="/admin" replace />} />
+          <Route path="admin/" element={<Navigate to="/admin" replace />} />
 
           {/* 404 */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        </Suspense>
       </BrowserRouter>
       </AuthProvider>
     </TooltipProvider>
