@@ -9,7 +9,7 @@ const BrandIdentity: React.FC = () => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // ✅ Hardcoded brand identity projects
+  // Hardcoded brand identity projects
   const brandProjects = [
     {
       title: "WE DETAIL CARS",
@@ -184,7 +184,7 @@ const BrandIdentity: React.FC = () => {
         </div>
       </div>
 
-      {/* ✅ Image Modal for both backend + hardcoded */}
+      {/* Image Modal for both backend + hardcoded */}
       <ImageModal
         isOpen={currentIndex !== null}
         onClose={() => setCurrentIndex(null)}
