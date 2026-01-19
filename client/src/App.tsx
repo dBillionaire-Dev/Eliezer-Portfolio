@@ -1,4 +1,5 @@
 import { Suspense, lazy } from "react";
+import Loading from "./components/Loading";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -49,7 +50,6 @@ const App = () => (
           <Route element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="brand-identity" element={<BrandIdentity />} />
-            <Route path="brand-identity" element={<Suspense fallback={<PageLoader />}><BrandIdentity /></Suspense>}/>
             <Route path="business-creatives" element={<BusinessCreatives />} />
             <Route path="poster-design" element={<PosterDesign />} />
             <Route path="services" element={<Services />} />
