@@ -1,30 +1,49 @@
 const Project = require('../models/projectModel');
-const path = require('path');
-const fs = require('fs');
+const cloudinary = require('../config/cloudinary');
+const streamifier = require('streamifier');
 
-// Upload new project
 const uploadProject = async (req, res) => {
   try {
     const { title, page_category, category, description } = req.body;
-    const imageUrl = req.file ? `/uploads/${req.file.filename}` : null;
 
-    if (!imageUrl) {
-      return res.status(400).json({ 
-        success: false, 
-        message: 'Image file is required' 
-    });
+    if (!req.file) {
+      return res.status(400).json({
+        success: false,
+        message: "Image file is required",
+      });
     }
 
-    const project = await Project.create({ title, page_category, category, description, imageUrl });
-    res.status(201).json({ 
-        success: true, 
-        message: 'Project uploaded', 
-        data: project 
-    });
+    const uploadStream = cloudinary.uploader.upload_stream(
+      { folder: "eliezer-projects" },
+      async (error, result) => {
+        if (error) {
+          return res.status(500).json({ success: false, message: error.message });
+        }
+
+        const project = await Project.create({
+          title,
+          page_category,
+          category,
+          description,
+          imageUrl: result.secure_url, // CLOUDINARY URL
+          imagePublicId: result.public_id, 
+        });
+
+
+        res.status(201).json({
+          success: true,
+          message: "Project uploaded",
+          data: project,
+        });
+      }
+    );
+
+    streamifier.createReadStream(req.file.buffer).pipe(uploadStream);
+
   } catch (err) {
-    res.status(500).json({ 
-        success: false, 
-        message: err.message 
+    res.status(500).json({
+      success: false,
+      message: err.message,
     });
   }
 };
@@ -62,62 +81,109 @@ const getProjectsByCategory = async (req, res) => {
   }
 };
 
-// Delete project
 const deleteProject = async (req, res) => {
   try {
     const project = await Project.findByIdAndDelete(req.params.id);
-    if (!project) return res.status(404).json({ 
-      success: false, 
-      message: 'Project not found' 
-    });
 
-    // remove image from uploads
-    const imagePath = path.join(__dirname, '../../uploads', path.basename(project.imageUrl));
-    if (fs.existsSync(imagePath)) fs.unlinkSync(imagePath);
+    if (!project) {
+      return res.status(404).json({ success: false, message: "Project not found" });
+    }
 
-    res.status(200).json({ 
-      success: true, 
-      message: 'Project deleted successfully' 
+    // Delete image from Cloudinary
+    const publicId = project.imageUrl.split('/').pop().split('.')[0];
+    await cloudinary.uploader.destroy(project.imagePublicId);
+
+
+    res.status(200).json({
+      success: true,
+      message: "Project deleted successfully",
     });
   } catch (error) {
-    res.status(500).json({ 
-      success: false, 
-      message: error.message 
+    res.status(500).json({
+      success: false,
+      message: error.message,
     });
   }
 };
 
-//Update Existing Project
 const updateProject = async (req, res) => {
   try {
     const { title, page_category, category, description } = req.body;
-    const updateData = { title, page_category, category, description };
 
+    const updateData = {
+      title,
+      page_category,
+      category,
+      description,
+    };
+
+    // If a new image is uploaded
     if (req.file) {
-      updateData.imageUrl = `/uploads/${req.file.filename}`;
+      const uploadStream = cloudinary.uploader.upload_stream(
+        { folder: "eliezer-projects" },
+        async (error, result) => {
+          if (error) {
+            return res.status(500).json({
+              success: false,
+              message: error.message,
+            });
+          }
+
+          updateData.imageUrl = result.secure_url;
+
+          const project = await Project.findByIdAndUpdate(
+            req.params.id,
+            updateData,
+            { new: true }
+          );
+
+          if (!project) {
+            return res.status(404).json({
+              success: false,
+              message: "Project not found",
+            });
+          }
+
+          res.status(200).json({
+            success: true,
+            message: "Project updated successfully",
+            data: project,
+          });
+        }
+      );
+
+      streamifier.createReadStream(req.file.buffer).pipe(uploadStream);
+      return;
     }
 
-    const project = await Project.findByIdAndUpdate(req.params.id, updateData, { new: true });
+    // No image update
+    const project = await Project.findByIdAndUpdate(
+      req.params.id,
+      updateData,
+      { new: true }
+    );
 
     if (!project) {
-      return res.status(404).json({ 
+      return res.status(404).json({
         success: false,
-        message: 'Project not found' 
+        message: "Project not found",
       });
     }
 
-    res.status(200).json({ 
+    res.status(200).json({
       success: true,
-      message: 'Project updated successfully', 
-      data: project 
+      message: "Project updated successfully",
+      data: project,
     });
+
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ 
+    res.status(500).json({
       success: false,
-      message: 'Error updating project' 
+      message: error.message,
     });
   }
 };
+
+
 
 module.exports = { uploadProject, getAllProjects, getProjectsByCategory, deleteProject, updateProject };

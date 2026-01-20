@@ -9,9 +9,11 @@ router.get('/', getAllProjects);
 // READ: fetch projects by category
 router.get('/:category', getProjectsByCategory);
 
+
 // Admin only: Add or delete projects 
 //CREATE: upload a new project (with image)
 router.post('/', verifyToken, verifyAdmin, upload.single('image'), uploadProject);
+
 //DELETE: delete a project
 router.delete('/:id', verifyToken, verifyAdmin, deleteProject);
 

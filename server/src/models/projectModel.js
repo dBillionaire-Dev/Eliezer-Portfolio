@@ -21,6 +21,10 @@ const projectSchema = new mongoose.Schema({
   imageUrl: { 
     type: String, 
     required: [true, 'Image is required']
+},
+imagePublicId: {
+  type: String,
+  required: true,
 }
 }, { 
     timestamps: true 
