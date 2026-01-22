@@ -127,6 +127,7 @@ const BrandIdentity: React.FC = () => {
       try {
         const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/projects`);
         console.log("API response:", res.data);
+        
           const filtered: UIProject[] = res.data.data
           .filter((p: Project) => p.page_category === "brand-identity")
           .map((p: Project) => ({
@@ -137,7 +138,7 @@ const BrandIdentity: React.FC = () => {
           }));
 
         setProjects(filtered);
-        
+
       } catch (err) {
         console.error("Error fetching projects:", err);
       } finally {

@@ -3,14 +3,15 @@ import axios from 'axios';
 import ProjectCard from '../components/ProjectCard';
 import ImageModal from '../components/ImageModal';
 import { Project } from "@/types/Project";
+import { UIProject } from '@/types/UIproject';
 
 const BusinessCreatives: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
-  const [projects, setProjects] = useState<Project[]>([]);
+  const [projects, setProjects] = useState<UIProject[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // ✅ Hardcoded business/ad creative projects
-  const businessProjects = [
+  // Hardcoded business/ad creative projects
+  const businessProjects: UIProject[] = [
     {
       title: "CAR PAINT PROMOTION",
       category: "Auto Detailing Brand",
@@ -73,12 +74,12 @@ const BusinessCreatives: React.FC = () => {
     }
   ];
 
-  // ✅ Combine backend + hardcoded projects
-  const allProjects = [...projects, ...businessProjects];
+  // Combine backend + hardcoded projects
+  const allProjects: UIProject[] = [...projects, ...businessProjects];
 
   const handleImageClick = (index: number) => setCurrentIndex(index);
 
-  // ✅ Infinite carousel navigation for modal
+  // Infinite carousel navigation for modal
   const goToPrev = () => {
     if (currentIndex !== null) {
       setCurrentIndex(prev => (prev! > 0 ? prev! - 1 : allProjects.length - 1));
@@ -91,21 +92,24 @@ const BusinessCreatives: React.FC = () => {
     }
   };
 
-  // ✅ Fetch backend projects
+  // Fetch backend projects
   useEffect(() => {
     const fetchProjects = async () => {
       try {
         const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/projects`);
         console.log("API response:", res.data);
 
-        const filtered = res.data.data
-          .filter((p: Project) => p.page_category === "business-creatives")
-          .map((p: Project) => ({
-            ...p,
-            imageUrl: `${import.meta.env.VITE_API_URL}${p.imageUrl}`,
-          }));
-
+        const filtered: UIProject[] = res.data.data
+            .filter((p: Project) => p.page_category === "business-creatives")
+            .map((p: Project) => ({
+              title: p.title,
+              category: p.category,
+              description: p.description,
+              image: p.imageUrl,
+            }));
+          
         setProjects(filtered);
+
       } catch (err) {
         console.error("Error fetching projects:", err);
       } finally {
@@ -137,7 +141,7 @@ const BusinessCreatives: React.FC = () => {
           </p>
         </div>
 
-        {/* ✅ Render all projects (backend + hardcoded) */}
+        {/* Render all projects (backend + hardcoded) */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {allProjects.map((project, index) => (
             <div key={index} className="animate-fade-in" style={{ animationDelay: `${index * 100}ms` }}>
@@ -145,7 +149,7 @@ const BusinessCreatives: React.FC = () => {
                 title={project.title}
                 category={project.category}
                 description={project.description}
-                image={"imageUrl" in project ? project.imageUrl : project.image}
+                image={project.image}
                 onClick={() => handleImageClick(index)}
                 hoverText="View Project"
               />
@@ -154,17 +158,18 @@ const BusinessCreatives: React.FC = () => {
         </div>
       </div>
 
-      {/* ✅ Image Modal for both backend + hardcoded */}
-      <ImageModal
+      {/* Image Modal for both backend + hardcoded */}
+    <ImageModal
         isOpen={currentIndex !== null}
         onClose={() => setCurrentIndex(null)}
-        imageSrc={currentIndex !== null ? ("imageUrl" in allProjects[currentIndex] ? allProjects[currentIndex].imageUrl : allProjects[currentIndex].image) : ''}
+        imageSrc={currentIndex !== null ? allProjects[currentIndex].image : ''}
         imageAlt={currentIndex !== null ? allProjects[currentIndex].title : ''}
         onNext={goToNext}
         onPrev={goToPrev}
-        showNext={true}  
-        showPrev={true}  
+        showNext
+        showPrev
       />
+
     </div>
   );
 };

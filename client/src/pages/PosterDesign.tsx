@@ -3,14 +3,15 @@ import axios from 'axios';
 import ProjectCard from '../components/ProjectCard';
 import ImageModal from '../components/ImageModal';
 import { Project } from "@/types/Project";
+import { UIProject } from '@/types/UIproject';
 
 const PosterDesign: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
-  const [projects, setProjects] = useState<Project[]>([]);
+  const [projects, setProjects] = useState<UIProject[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // ✅ Hardcoded poster projects
-  const posterProjects = [
+  // Hardcoded poster projects
+  const posterProjects: UIProject[] = [
     {
       title: "Soda Launch",
       category: "Soda Poster",
@@ -67,8 +68,8 @@ const PosterDesign: React.FC = () => {
     }
   ];
 
-  // ✅ Combine backend and local posters
-  const allProjects = [...projects, ...posterProjects];
+  // Combine backend and local posters
+  const allProjects: UIProject[] = [...projects, ...posterProjects];
 
   const handleImageClick = (index: number) => {
     setCurrentIndex(index);
@@ -86,7 +87,7 @@ const PosterDesign: React.FC = () => {
     }
   };
 
-  // ✅ Fetch projects from backend
+  // Fetch projects from backend
   useEffect(() => {
   const fetchProjects = async () => {
     try {
@@ -94,12 +95,14 @@ const PosterDesign: React.FC = () => {
 
       console.log("API response:", res.data);
 
-      const filtered = res.data.data
-        .filter((p: Project) => p.page_category === "poster-design")
-        .map((p: Project) => ({
-          ...p,
-          imageUrl: `${import.meta.env.VITE_API_URL}${p.imageUrl}`,
-        }));
+        const filtered: UIProject[] = res.data.data
+          .filter((p: Project) => p.page_category === "poster-design")
+          .map((p: Project) => ({
+            title: p.title,
+            category: p.category,
+            description: p.description,
+            image: p.imageUrl,
+          }));
 
       setProjects(filtered);
     } catch (err) {
@@ -128,7 +131,7 @@ const PosterDesign: React.FC = () => {
         <div className="absolute bottom-60 left-1/4 w-24 h-1 bg-white/8 -rotate-12"></div>
       </div>
 
-      {/* ✅ Content */}
+      {/* Content */}
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
@@ -139,7 +142,7 @@ const PosterDesign: React.FC = () => {
           </p>
         </div>
 
-        {/* ✅ Render all projects (backend + hardcoded) */}
+        {/*Render all projects (backend + hardcoded) */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {allProjects.map((project, index) => (
             <div
@@ -151,11 +154,7 @@ const PosterDesign: React.FC = () => {
                 title={project.title}
                 category={project.category}
                 description={project.description}
-                image={
-                  "imageUrl" in project
-                    ? project.imageUrl
-                    : project.image 
-                }
+                image={project.image}
                 onClick={() => handleImageClick(index)}
                 hoverText="View Project"
               />
@@ -164,22 +163,16 @@ const PosterDesign: React.FC = () => {
         </div>
       </div>
 
-      {/* ✅ Image Modal now works for both backend + hardcoded posters */}
+      {/* Image Modal now works for both backend + hardcoded posters */}
       <ImageModal
         isOpen={currentIndex !== null}
         onClose={() => setCurrentIndex(null)}
-        imageSrc={
-          currentIndex !== null
-            ? "imageUrl" in allProjects[currentIndex]
-              ? allProjects[currentIndex].imageUrl
-              : allProjects[currentIndex].image
-            : ''
-        }
+        imageSrc={currentIndex !== null ? allProjects[currentIndex].image : ''}
         imageAlt={currentIndex !== null ? allProjects[currentIndex].title : ''}
         onNext={goToNext}
         onPrev={goToPrev}
-        showNext={true}  
-        showPrev={true} 
+        showNext
+        showPrev
       />
     </div>
   );
