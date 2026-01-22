@@ -3,14 +3,15 @@ import axios from 'axios';
 import ProjectCard from '../components/ProjectCard';
 import ImageModal from '../components/ImageModal';
 import { Project } from "@/types/Project";
+import { UIProject } from '@/types/UIproject';
 
 const BrandIdentity: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
-  const [projects, setProjects] = useState<Project[]>([]);
+  const [projects, setProjects] = useState<UIProject[]>([]);
   const [loading, setLoading] = useState(true);
 
   // Hardcoded brand identity projects
-  const brandProjects = [
+  const brandProjects: UIProject[] = [
     {
       title: "WE DETAIL CARS",
       category: "Auto Detailing Brand",
@@ -104,7 +105,7 @@ const BrandIdentity: React.FC = () => {
   ];
 
   // Combine backend + hardcoded projects
-  const allProjects = [...projects, ...brandProjects];
+  const allProjects: UIProject[] = [...projects, ...brandProjects];
 
   const handleImageClick = (index: number) => setCurrentIndex(index);
 
@@ -126,13 +127,15 @@ const BrandIdentity: React.FC = () => {
       try {
         const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/projects`);
         console.log("API response:", res.data);
-
-        const filtered = res.data.data
+          const filtered: UIProject[] = res.data.data
           .filter((p: Project) => p.page_category === "brand-identity")
           .map((p: Project) => ({
-            ...p,
-            imageUrl: `${import.meta.env.VITE_API_URL}${p.imageUrl}`,
+            title: p.title,
+            category: p.category,
+            description: p.description,
+            image: `${import.meta.env.VITE_API_URL}${p.imageUrl}`,
           }));
+
 
         setProjects(filtered);
       } catch (err) {
@@ -175,7 +178,7 @@ const BrandIdentity: React.FC = () => {
                 title={project.title}
                 category={project.category}
                 description={project.description}
-                image={"imageUrl" in project ? project.imageUrl : project.image}
+                image={project.image}
                 onClick={() => handleImageClick(index)}
                 hoverText="View Project"
               />
@@ -188,13 +191,14 @@ const BrandIdentity: React.FC = () => {
       <ImageModal
         isOpen={currentIndex !== null}
         onClose={() => setCurrentIndex(null)}
-        imageSrc={currentIndex !== null ? ("imageUrl" in allProjects[currentIndex] ? allProjects[currentIndex].imageUrl : allProjects[currentIndex].image) : ''}
+        imageSrc={currentIndex !== null ? allProjects[currentIndex].image : ''}
         imageAlt={currentIndex !== null ? allProjects[currentIndex].title : ''}
         onNext={goToNext}
         onPrev={goToPrev}
-        showNext={true}  
-        showPrev={true} 
+        showNext
+        showPrev
       />
+
     </div>
   );
 };
