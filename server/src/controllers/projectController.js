@@ -1,5 +1,6 @@
 const Project = require('../models/projectModel');
 const cloudinary = require('../config/cloudinary');
+const {uploadToCloudinary} = require('../helpers/cloudinaryHelpers')
 const streamifier = require('streamifier');
 
 const uploadProject = async (req, res) => {
@@ -13,32 +14,22 @@ const uploadProject = async (req, res) => {
       });
     }
 
-    const uploadStream = cloudinary.uploader.upload_stream(
-      { folder: "eliezer-projects" },
-      async (error, result) => {
-        if (error) {
-          return res.status(500).json({ success: false, message: error.message });
-        }
+    const { url, publicId } = await uploadToCloudinary(req.file.buffer);
 
         const project = await Project.create({
           title,
           page_category,
           category,
           description,
-          imageUrl: result.secure_url, // CLOUDINARY URL
-          imagePublicId: result.public_id, 
+          imageUrl: url,
+          imagePublicId: publicId,
         });
-
 
         res.status(201).json({
           success: true,
           message: "Project uploaded",
           data: project,
         });
-      }
-    );
-
-    streamifier.createReadStream(req.file.buffer).pipe(uploadStream);
 
   } catch (err) {
     res.status(500).json({
@@ -47,6 +38,7 @@ const uploadProject = async (req, res) => {
     });
   }
 };
+
 
 // Get all projects
 const getAllProjects = async (req, res) => {
@@ -183,7 +175,5 @@ const updateProject = async (req, res) => {
     });
   }
 };
-
-
 
 module.exports = { uploadProject, getAllProjects, getProjectsByCategory, deleteProject, updateProject };
