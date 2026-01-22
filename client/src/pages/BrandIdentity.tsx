@@ -133,11 +133,11 @@ const BrandIdentity: React.FC = () => {
             title: p.title,
             category: p.category,
             description: p.description,
-            image: `${import.meta.env.VITE_API_URL}${p.imageUrl}`,
+            image: p.imageUrl,
           }));
 
-
         setProjects(filtered);
+        
       } catch (err) {
         console.error("Error fetching projects:", err);
       } finally {
