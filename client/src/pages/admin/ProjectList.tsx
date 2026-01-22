@@ -32,9 +32,10 @@ const ProjectList: React.FC = () => {
       {projects.map((p) => (
         <div key={p._id} className="border rounded-lg overflow-hidden shadow">
           <img
-            src={`${import.meta.env.VITE_API_URL}${p.imageUrl}`}
+            src={p.imageUrl}
             alt={p.title}
-            className="w-full h-48 object-cover "
+            className="w-full h-48 object-cover"
+            loading="lazy"
           />
           <div className="p-4">
             <h3 className="font-bold text-lg text-gray-900">{p.title}</h3>
